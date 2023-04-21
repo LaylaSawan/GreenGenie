@@ -115,12 +115,13 @@
         <div class="col-lg-3 col-md-12">
           <div class="white-box analytics-info">
             <h3 class="box-title">Soil Moisture</h3>
-              <ul class="intro">
-                <li><span>Sensor Readings: </span></li>
-                <span class="sensorReading">The bottom: <p id="bottomMoistureSensor"></p>and the top: <p id="topMoistureSensor"></p></span>
-              </ul>
+            <ul class="intro">
+              <li><span>Sensor Readings: </span></li>
+              <span class="sensorReading">The bottom: <p id="bottomMoistureSensor"></p>and the top: <p
+                  id="topMoistureSensor"></p></span>
+            </ul>
 
-              <!-- <div class="form-check form-switch">
+            <!-- <div class="form-check form-switch">
                 <label class="form-check-label" for="flexSwitchedCheckChecked">Oxygen
                   Source</label>defining the titl
                 <input class="form-check-input" type="checkbox" role="switch" id="myWaterCheckbox"
@@ -129,9 +130,9 @@
                 <a id="buttonOnWater" syle="display:block;">Water Source is
                   On</a>defining button on and button off and setting the style as block
                 <a id="buttonOffWater" syle="display:block;">Water Source is Off</a>
-              </div> --> 
+              </div> -->
 
-              </li>
+            </li>
             </ul>
             <p><a href="moisture.html">Why is the Soil Moisture Sensor important?</a></p><!--Linking pages-->
 
@@ -141,10 +142,12 @@
         <div class="col-lg-3 col-md-12">
           <div class="white-box analytics-info">
             <h3 class="box-title">Temperature</h3>
-            
+
             <ul class="intro">
               <li><span>Sensor Readings: </span></li>
-              <li><p class="sensorReading" id="tempSensorValue"> </p></li>
+              <li>
+                <p class="sensorReading" id="tempSensorValue"> </p>
+              </li>
             </ul>
 
             <p><a href="temperature.html">Why is the Temperature Sensor important?</a></p><!--Linking pages-->
@@ -156,15 +159,16 @@
 
             <ul class="intro">
               <li><span>Sensor Readings: </span></li>
-              <li><p class="sensorReading" > </p></li>
+              <li>
+                <p class="sensorReading"> </p>
+              </li>
             </ul>
 
             <div class="form-check form-switch">
               <label class="form-check-label" for="flexSwitchedCheckChecked">Oxygen
                 Source</label><!--defining the title-->
               <input class="form-check-input" type="checkbox" role="switch" id="myFanCheckbox"
-                onchange="toggleFanCheck()"
-                /><!--myWaterCheckbox and toggleWaterCheck to change event of the fan-->
+                onchange="toggleFanCheck()" /><!--myWaterCheckbox and toggleWaterCheck to change event of the fan-->
               <a id="buttonOnFan" style="display:none;">Fan is
                 On</a><!--defining button on and button off and setting the style as block-->
               <a id="buttonOffFan" style="display:block;">Fan is Off</a>
@@ -179,7 +183,9 @@
             <h3 class="box-title">Sunlight Levels</h3>
             <ul class="intro">
               <li><span>Sensor Readings: </span></li>
-              <li><p class="sensorReading" id="photoSensorValue"></p></li>
+              <li>
+                <p class="sensorReading" id="photoSensorValue"></p>
+              </li>
             </ul>
             <p><a href="photo.html">Why is the Photo Resistor important?</a></p><!--Linking pages-->
           </div>
@@ -217,6 +223,7 @@
               <div>
                 <canvas id="photoChart"></canvas><!--Connecting the chart-->
               </div>
+            </div>
           </div>
 
           <div class="col-md-6 col-lg-6 col-sm-6 col-xs-6"><!--Identififing bootstrap-->
@@ -225,7 +232,8 @@
               <div>
                 <canvas id="methaneChart"></canvas><!--Connecting the chart-->
               </div>
-        </div>
+            </div>
+          </div>
 
 
 
@@ -235,13 +243,14 @@
           <!-- ============================================================== -->
 
           <style>
-            .sensorReading{
+            .sensorReading {
               font-size: 16px;
               list-style: none;
               color: #7ace4c;
               text-align: left;
               padding: 0;
             }
+
             .intro {
               font-size: 18px;
               list-style: none;
