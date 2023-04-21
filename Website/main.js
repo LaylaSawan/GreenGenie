@@ -180,8 +180,8 @@ async function getListOfSensorValues() {//using a fetch statement to get the val
             
             // Current format => moistureTop,moistureBottom,sunlight,methane,temperature,deviceID
 
-            document.getElementById("bottomMoistureSensor").innerHTML = (myValue[1] + myValue[0] == myValue[0, 1] / 2) + "%";// acsess the tag with id sensor and; putting the data into the value
-            document.getElementById("topMoistureSensor").innerHTML = (myValue[0]) + "%";
+            document.getElementById("bottomMoistureSensor").innerHTML = (myValue[1]) + "%";// acsess the tag with id sensor and; putting the data into the value
+            // document.getElementById("topMoistureSensor").innerHTML = (myValue[0]) + "%";
             document.getElementById("tempSensorValue").innerHTML = myValue[4] += "&#8451";
             document.getElementById("photoSensorValue").innerHTML = (myValue[2]) + "%";
             document.getElementById("methaneSensorValue").innerHTML = (myValue[3]) + "%";
