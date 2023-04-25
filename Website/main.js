@@ -157,7 +157,10 @@ async function getListOfSensorValues() {//using a fetch statement to get the val
                 }
             });
 
-            
+            if (methaneRef != null) {
+                methaneRef.destroy();
+            }
+        
             methaneRef = new Chart(methaneChart, {
                 type: 'line',
                 data: {
@@ -177,20 +180,17 @@ async function getListOfSensorValues() {//using a fetch statement to get the val
                 }
             });
         
-            if (methaneRef != null) {
-                methaneRef.destroy();
-            }
-            
+                       
             
             
             // Current format => moistureTop,moistureBottom,sunlight,methane,temperature,deviceID
 
             document.getElementById("bottomMoistureSensor").innerHTML = (myValue[1]) + "%";// acsess the tag with id sensor and; putting the data into the value
             // document.getElementById("topMoistureSensor").innerHTML = (myValue[0]) + "%";
-            if (myValue[4] != -1) {
-                document.getElementById("tempSensorValue").innerHTML = myValue[4] += "&#8451";
-            }
+            document.getElementById("tempSensorValue").innerHTML = myValue[4] += "&#8451";
+            if (myValue[2] != -1) {
             document.getElementById("photoSensorValue").innerHTML = (myValue[2]) + "%";
+            }
             document.getElementById("methaneSensorValue").innerHTML = (myValue[3]) + "%";
         })
 }
