@@ -10,6 +10,7 @@ let deviceId = 1;
 
 function updateDeviceId() {
     deviceId = document.getElementById("deviceDropdown").value;
+    console.log(deviceId)
 }
 
 async function getListOfSensorValues() {//using a fetch statement to get the values
@@ -22,7 +23,7 @@ async function getListOfSensorValues() {//using a fetch statement to get the val
     fetch('https://cvpcmc3kka.execute-api.us-east-1.amazonaws.com/prod/?id=' + deviceId)// its is making a GET request
         .then(res => res.json())//when you get the responce from the api, run this; it converts responce to json
         .then(data => {//when you finish converting the json, run the code
-            console.log(data["value"])// its printing the data
+            console.log(data[0]["value"])// its printing the data
 
             let dataBaseValues = data[0]["value"]; // let = create a variable
             const myValue = dataBaseValues.split(",");//splits the values
