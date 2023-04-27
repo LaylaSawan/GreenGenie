@@ -6,6 +6,11 @@ let mositureTwoRef = null;
 let photoRef = null;
 let moistureRef = null;
 let methaneRef = null;
+let deviceId = 1;
+
+function updateDeviceId() {
+    deviceId = document.getElementById("deviceDropdown").value;
+}
 
 async function getListOfSensorValues() {//using a fetch statement to get the values
 
@@ -14,7 +19,7 @@ async function getListOfSensorValues() {//using a fetch statement to get the val
     const moistureChart = document.getElementById('moistureChart');
     const methaneChart = document.getElementById('methaneChart');
 
-    fetch('https://cvpcmc3kka.execute-api.us-east-1.amazonaws.com/prod/?id=' + window.location.search.substring(4))// its is making a GET request
+    fetch('https://cvpcmc3kka.execute-api.us-east-1.amazonaws.com/prod/?id=' + deviceId)// its is making a GET request
         .then(res => res.json())//when you get the responce from the api, run this; it converts responce to json
         .then(data => {//when you finish converting the json, run the code
             console.log(data["value"])// its printing the data
