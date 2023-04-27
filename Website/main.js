@@ -8,6 +8,7 @@ let moistureRef = null;
 let methaneRef = null;
 let deviceId = 1;
 
+// Function to connect the dropdown to the js
 function updateDeviceId() {
     deviceId = document.getElementById("deviceDropdown").value;
     console.log(deviceId)
@@ -126,8 +127,6 @@ async function getListOfSensorValues() {//using a fetch statement to get the val
                 },
 
             });
-
-
 
             if (tempRef != null) {
                 tempRef.destroy();
