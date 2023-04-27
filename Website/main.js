@@ -34,7 +34,9 @@ async function getListOfSensorValues() {//using a fetch statement to get the val
             // document.getElementById("topMoistureSensor").innerHTML = (myValue[0]) + "%";
             document.getElementById("tempSensorValue").innerHTML = myValue[4] += "&#8451";
             if (myValue[2] != -1) {
-            document.getElementById("photoSensorValue").innerHTML = (myValue[2]) + "%";
+                document.getElementById("photoSensorValue").innerHTML = (myValue[2]) + "%";
+            } else {
+                document.getElementById("photoSensorValue").innerHTML = "No Value";
             }
             document.getElementById("methaneSensorValue").innerHTML = (myValue[3]) + "%";
 
