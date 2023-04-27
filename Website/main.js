@@ -163,9 +163,9 @@ async function getListOfSensorValues() {//using a fetch statement to get the val
                 }
             });
 
-//             if (methaneRef != null) {
-//                 methaneRef.destroy();
-//             }
+            if (methaneRef != null) {
+                methaneRef.destroy();
+            }
         
             methaneRef = new Chart(methaneChart, {
                 type: 'line',
