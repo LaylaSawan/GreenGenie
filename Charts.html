@@ -107,57 +107,6 @@
                     </button>
                 </nav>
                 <!-- End of Topbar -->
-                <script>
-                    const apiUrl = 'https://k1z4zgvk39.execute-api.us-east-2.amazonaws.com/DepA/';
-                    allData = { "co": {}, "co2": {}, "flame": {}, "temp": {}, "humidity": {}, "date": {} }
-
-
-                    fetch(apiUrl)
-                        .then(response => {
-                            if (!response.ok) {
-                                throw new Error('Network response was not ok');
-                            }
-                            return response.json();
-                        })
-                        .then(data => {
-                            data.forEach(point => {
-                                console.log(point)
-                                // allData[point.node] = point
-                                point.sensorData.forEach(rowOfData => {
-                                    if (allData['co'][point.node] === undefined) {
-                                        allData['co'][point.node] = []
-                                        allData['co2'][point.node] = []
-                                        allData['flame'][point.node] = []
-                                        allData['temp'][point.node] = []
-                                        allData['humidity'][point.node] = []
-                                        allData['date'][point.node] = []
-                                    }
-                                    allData['co'][point.node].push(rowOfData['co'])
-                                    allData['co2'][point.node].push(rowOfData['co2'])
-                                    allData['flame'][point.node].push(rowOfData['flame'])
-                                    allData['temp'][point.node].push(rowOfData['temp'])
-                                    allData['humidity'][point.node].push(rowOfData['humidity'])
-
-
-                                    let date_time = rowOfData['date_time']
-
-
-                                    allData['date'][point.node].push(date_time)
-                                })
-
-
-                            });
-                            console.log(allData)
-                            console.log("Done.");
-                            updateNodeSensor();
-                        })
-                        .catch(error => {
-                            console.error('Error:', error);
-                        });
-
-
-                </script>
-
 
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
@@ -215,6 +164,54 @@
                             document.getElementById("demoSENSOR").innerHTML = "You selected: " + id;
                             changeChart(allData['date'][id], allData[sensor][id], sensor)
                         }
+                        
+                        const apiUrl = 'https://k1z4zgvk39.execute-api.us-east-2.amazonaws.com/DepA/';
+                        let allData = { "co": {}, "co2": {}, "flame": {}, "temp": {}, "humidity": {}, "date": {} };
+                        
+                        function fetchDataAndUpdate() {
+                            fetch(apiUrl)
+                                .then(response => {
+                                    if (!response.ok) {
+                                        throw new Error('Network response was not ok');
+                                    }
+                                    return response.json();
+                                })
+                                .then(data => {
+                                    data.forEach(point => {
+                                        console.log(point);
+                                        point.sensorData.forEach(rowOfData => {
+                                            if (allData['co'][point.node] === undefined) {
+                                                allData['co'][point.node] = [];
+                                                allData['co2'][point.node] = [];
+                                                allData['flame'][point.node] = [];
+                                                allData['temp'][point.node] = [];
+                                                allData['humidity'][point.node] = [];
+                                                allData['date'][point.node] = [];
+                                            }
+                                            allData['co'][point.node].push(rowOfData['co']);
+                                            allData['co2'][point.node].push(rowOfData['co2']);
+                                            allData['flame'][point.node].push(rowOfData['flame']);
+                                            allData['temp'][point.node].push(rowOfData['temp']);
+                                            allData['humidity'][point.node].push(rowOfData['humidity']);
+                        
+                                            let date_time = rowOfData['date_time'];
+                                            allData['date'][point.node].push(date_time);
+                                        });
+                                    });
+                                    console.log(allData);
+                                    console.log("Done.");
+                                    updateNodeSensor();
+                                })
+                                .catch(error => {
+                                    console.error('Error:', error);
+                                });
+                        }
+                        
+                        // Call the function initially
+                        fetchDataAndUpdate();
+                        
+                        // Call the function every 5 seconds
+                        setInterval(fetchDataAndUpdate, 5000);
                     </script>
 
                     <div class="chartBox col-lg-12">
