@@ -177,7 +177,7 @@
                                     return response.json();
                                 })
                                 .then(data => {
-                                    allData = []
+                                    allData = { "co": {}, "co2": {}, "flame": {}, "temp": {}, "humidity": {}, "date": {} };
                                     data.forEach(point => {
                                         console.log(point);
                                         point.sensorData.forEach(rowOfData => {
