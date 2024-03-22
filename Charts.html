@@ -259,7 +259,7 @@
                         function changeChart(label, data, type, color = 'rgba(255, 99, 132, 1)') {
                             myChart.data.datasets[0].backgroundColor = color;
                             myChart.data.datasets[0].borderColor = color;
-                            myChart.data.labels = label;
+                            myChart.data.labels = label.reverse();
 
                             myChart.options.scales = {
                                 x: {
@@ -277,7 +277,7 @@
                                 }
                             }
 
-                            myChart.data.datasets[0].data = data;
+                            myChart.data.datasets[0].data = data.reverse();
                             myChart.update()
                         }
                     </script>
