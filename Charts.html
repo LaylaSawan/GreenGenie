@@ -2,26 +2,27 @@
 <html lang="en">
 
 <head>
+
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Forest Sense Charts</title>
+    <title>ForestSense</title>
     <link rel="icon" type="image/x-icon" href="./img/FOREST SENSE LOGO.png">
-    <!-- Custom fonts for this template -->
+    <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
 
-    <!-- Custom styles for this template -->
+    <!-- Custom styles for this template-->
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
+
 </head>
 
 <body id="page-top">
-
     <!-- Page Wrapper -->
     <div id="wrapper">
 
@@ -40,11 +41,10 @@
             <hr class="sidebar-divider my-0">
 
             <!-- Nav Item - Dashboard -->
-            <li class="nav-item">
+            <li class="nav-item active">
                 <a class="nav-link" href="index.html">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>ForestSense</span>
-                </a>
+                    <span>Dashboard</span></a>
             </li>
 
             <!-- Divider -->
@@ -56,7 +56,7 @@
             </div>
 
             <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item active">
+            <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
                     aria-expanded="true" aria-controls="collapseTwo">
                     <i class="fas fa-fw fa-cog"></i>
@@ -89,6 +89,8 @@
 
             <!-- Divider -->
             <hr class="sidebar-divider">
+
+           
         </ul>
         <!-- End of Sidebar -->
 
@@ -105,6 +107,7 @@
                     <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
                         <i class="fa fa-bars"></i>
                     </button>
+
                 </nav>
                 <!-- End of Topbar -->
 
@@ -115,236 +118,153 @@
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
                         <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
                     </div>
-
                     <div class="row">
+
+                       
+                    </div>
+
+                    <!-- Content Row -->
+                    <div class="row">
+
                         <!-- Content Column -->
                         <div class="col-lg-6 mb-4">
+
                             <!-- Project Card Example -->
                             <div class="card shadow mb-4">
                                 <div class="card-header py-3">
-                                    <h6 class="m-0 font-weight-bold text-primary" for="node">Choose a Node</h6>
+                                    <h6 class="m-0 font-weight-bold text-primary">Wildfire causes</h6>
                                 </div>
                                 <div class="card-body">
-                                    <h4 class="small font-weight-bold">Select a Node From The List</h4>
-                                    <select id="mySelectID" class="custom-select" onchange=updateNodeSensor()>
-                                        <option value="5">Node 5</option>
-                                        <option value="10">Node 10</option>
-                                    </select>
-                                    <p id="demoNODE"></p>
+                                    <h4 class="small font-weight-bold">Natural Caused<span
+                                            class="float-right">10%</span></h4>
+                                    <div class="progress mb-4">
+                                        <div class="progress-bar bg-danger" role="progressbar" style="width: 10%"
+                                            aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                    <h4 class="small font-weight-bold">Human Caused-Causes<span
+                                            class="float-right">90%</span></h4>
+                                    <div class="progress mb-4">
+                                        <div class="progress-bar bg-warning" role="progressbar" style="width: 90%"
+                                            aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                    
                                 </div>
                             </div>
+                             <!-- Approach -->
+                             <div class="card shadow mb-4">
+                                <div class="card-header py-3">
+                                    <h6 class="m-0 font-weight-bold text-primary">What is Forest Sense?</h6>
+                                </div>
+                                <div class="card-body">
+                                    <p>Forests are vital to biodiversity, climate regulation, and overall ecological balance. To protect these invaluable ecosystems, I created Forest Sense – a novel system designed to revolutionize the way we monitor and safeguard our forests.
+                                        Forest Sense aims to establish a mesh network of nodes around a forest area. The nodes are powered by ESP32s and ESP32CAM microcontrollers and are used to deploy various sensors depending on the functionality of the node. This network will be integrated with a backend system to store real-time data and transmit to ForestSense Website. The system collects information that is used to detect the presence of a fire in the forest and alert the relevant authorities. Additionally, the system uses machine learning to detect the presence of a fire in a forest by analyzing real-time pictures captured by the camera node.
+                                        </p>
+                                </div>
+                            </div>
+
                         </div>
 
                         <div class="col-lg-6 mb-4">
+
                             <!-- Illustrations -->
                             <div class="card shadow mb-4">
                                 <div class="card-header py-3">
-                                    <h6 class="m-0 font-weight-bold text-primary" for="sensor">Choose a Value</h6>
+                                    <h6 class="m-0 font-weight-bold text-primary">Forest Sense Approach</h6>
                                 </div>
                                 <div class="card-body">
-                                    <h4 class="small font-weight-bold">Select a value from the list</h4>
-                                    <select id="mySelectSensor" class="custom-select" onchange=updateNodeSensor()>
-                                        <option value="co">CO</option>
-                                        <option value="co2">CO2</option>
-                                        <option value="flame">Flame</option>
-                                        <option value="temp">Temperature</option>
-                                        <option value="humidity">Humidity</option>
-                                    </select>
-                                    <p id="demoSENSOR"></p>
+                                    <div class="text-center">
+                                        <img class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width: 25rem;"
+                                            src="file:///C:/Users/LaylaS/Desktop/Science Fair 2024/Images_From_Website/PXL_20240313_202420150.jpg" alt="Burnt Forest">
+                                    </div>
+                                    <p>Forest fires are mostly caused by human activity, accounting for 90% of all forest fires. This includes unattended campfires, burning debris, and arson. It's crucial for individuals to take necessary precautions to prevent forest fires from occurring and be mindful of their impact on the environment. By doing so, I can help reduce the number of human-caused forest fires and protect our natural resources.</p>
+                                    
+                                </div>
+                            </div>
+
+                                <!-- Illustrations -->
+                                <div class="card shadow mb-4">
+                                    <div class="card-header py-3">
+                                        <h6 class="m-0 font-weight-bold text-primary">Forest Sense Video</h6>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="text-center">
+                                            <video width="320" height="240" controls>
+                                                <source src="https://www.youtube.com/watch?v=jqqoNqgLnO0">
+                                              Your browser does not support the video tag.
+                                              </video>
+                                        </div>
+                                        <p>Forest fires are mostly caused by human activity, accounting for 90% of all forest fires. This includes unattended campfires, burning debris, and arson. It's crucial for individuals to take necessary precautions to prevent forest fires from occurring and be mindful of their impact on the environment. By doing so, I can help reduce the number of human-caused forest fires and protect our natural resources.</p>
+                                        
+                                    </div>
                                 </div>
 
-                            </div>
+                           
                         </div>
                     </div>
-
-                    <script>
-                        function updateNodeSensor() {
-                            var sensor = document.getElementById("mySelectSensor").value;
-                            var id = document.getElementById("mySelectID").value;
-                            document.getElementById("demoSENSOR").innerHTML = "You selected: " + id;
-                            changeChart(allData['date'][id], allData[sensor][id], sensor)
-                        }
-                        
-                        const apiUrl = 'https://k1z4zgvk39.execute-api.us-east-2.amazonaws.com/DepA/';
-                        let allData = { "co": {}, "co2": {}, "flame": {}, "temp": {}, "humidity": {}, "date": {} };
-                        
-                        function fetchDataAndUpdate() {
-                            fetch(apiUrl)
-                                .then(response => {
-                                    if (!response.ok) {
-                                        throw new Error('Network response was not ok');
-                                    }
-                                    return response.json();
-                                })
-                                .then(data => {
-                                    allData = []
-                                    data.forEach(point => {
-                                        console.log(point);
-                                        point.sensorData.forEach(rowOfData => {
-                                            if (allData['co'][point.node] === undefined) {
-                                                allData['co'][point.node] = [];
-                                                allData['co2'][point.node] = [];
-                                                allData['flame'][point.node] = [];
-                                                allData['temp'][point.node] = [];
-                                                allData['humidity'][point.node] = [];
-                                                allData['date'][point.node] = [];
-                                            }
-                                            allData['co'][point.node].push(rowOfData['co']);
-                                            allData['co2'][point.node].push(rowOfData['co2']);
-                                            allData['flame'][point.node].push(rowOfData['flame']);
-                                            allData['temp'][point.node].push(rowOfData['temp']);
-                                            allData['humidity'][point.node].push(rowOfData['humidity']);
-                        
-                                            let date_time = rowOfData['date_time'];
-                                            allData['date'][point.node].push(date_time);
-                                        });
-                                    });
-                                    console.log(allData);
-                                    console.log("Done.");
-                                    updateNodeSensor();
-                                })
-                                .catch(error => {
-                                    console.error('Error:', error);
-                                });
-                        }
-                        
-                        // Call the function initially
-                        fetchDataAndUpdate();
-                        
-                        // Call the function every 5 seconds
-                        setInterval(fetchDataAndUpdate, 5000);
-                    </script>
-
-                    <div class="chartBox col-lg-12">
-                        <div class="card shadow mb-4">
-                            <div class="card-header py-3"></div>
-                            <canvas id="myChart"></canvas>
-                        </div>
-                    </div>
-
-                    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-                    <script>
-
-                        const ctx = document.getElementById('myChart');
-                        const myChart = new Chart(ctx, {
-                            type: 'line',
-                            data: {
-                                datasets: [{
-                                    backgroundColor: [
-                                        'rgba(255, 99, 132, 0.2)'
-                                    ],
-                                    borderColor: [
-                                        'rgba(255, 99, 132, 1)'
-                                    ],
-                                    borderWidth: 1
-                                }]
-                            },
-                            options: {
-                                scales: {
-                                    y: {
-                                        beginAtZero: true
-                                    }
-                                }
-                            }
-                        });
-
-                        const labelToAxisTitle = {
-                            "co": "Carbon Monoxide Levels",
-                            "co2": "Carbon Dioxide Levels",
-                            "flame": "Flame Presence",
-                            "temp": "Temperature (°C)",
-                            "humidity": "Humidity (%)"
-                        }
-
-                        function changeChart(label, data, type, color = 'rgba(255, 99, 132, 1)') {
-                            myChart.data.datasets[0].backgroundColor = color;
-                            myChart.data.datasets[0].borderColor = color;
-                            myChart.data.labels = label;
-
-                            myChart.options.scales = {
-                                x: {
-                                    title: {
-                                        display: true,
-                                        text: "Timestamp Uploaded",
-                                    }
-                                },
-                                y: {
-                                    title: {
-                                        display: true,
-                                        text: labelToAxisTitle[type]
-                                    },
-                                    beginAtZero: 0
-                                }
-                            }
-
-                            myChart.data.datasets[0].data = data;
-                            myChart.update()
-                        }
-                    </script>
-                    <!-- Content Row -->
-
-                    <!-- /.container-fluid -->
 
                 </div>
-                <!-- End of Main Content -->
-
-                <!-- Footer -->
-                <footer class="sticky-footer bg-white">
-                    <div class="container my-auto">
-                        <div class="copyright text-center my-auto">
-                            <span>Copyright &copy; Forest Sense 2024</span>
-                        </div>
-                    </div>
-                </footer>
-                <!-- End of Footer -->
+                <!-- /.container-fluid -->
 
             </div>
-            <!-- End of Content Wrapper -->
+            <!-- End of Main Content -->
+
+            <!-- Footer -->
+            <footer class="sticky-footer bg-white">
+                <div class="container my-auto">
+                    <div class="copyright text-center my-auto">
+                        <span>Copyright &copy; Forest Sense 2024</span>
+                    </div>
+                </div>
+            </footer>
+            <!-- End of Footer -->
 
         </div>
-        <!-- End of Page Wrapper -->
+        <!-- End of Content Wrapper -->
 
-        <!-- Scroll to Top Button-->
-        <a class="scroll-to-top rounded" href="#page-top">
-            <i class="fas fa-angle-up"></i>
-        </a>
+    </div>
+    <!-- End of Page Wrapper -->
 
-        <!-- Logout Modal-->
-        <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-            aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-                        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">×</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-                    <div class="modal-footer">
-                        <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                        <a class="btn btn-primary" href="login.html">Logout</a>
-                    </div>
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
+
+    <!-- Logout Modal-->
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                    <a class="btn btn-primary" href="login.html">Logout</a>
                 </div>
             </div>
         </div>
+    </div>
 
-        <!-- Bootstrap core JavaScript-->
-        <script src="vendor/jquery/jquery.min.js"></script>
-        <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- Bootstrap core JavaScript-->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-        <!-- Core plugin JavaScript-->
-        <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+    <!-- Core plugin JavaScript-->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 
-        <!-- Custom scripts for all pages-->
-        <script src="js/sb-admin-2.min.js"></script>
+    <!-- Custom scripts for all pages-->
+    <script src="js/sb-admin-2.min.js"></script>
 
-        <!-- Page level plugins -->
-        <script src="vendor/chart.js/Chart.min.js"></script>
+    <!-- Page level plugins -->
+    <script src="vendor/chart.js/Chart.min.js"></script>
 
-        <!-- Page level custom scripts -->
-        <script src="js/demo/chart-area-demo.js"></script>
-        <script src="js/demo/chart-pie-demo.js"></script>
+    <!-- Page level custom scripts -->
+    <script src="js/demo/chart-area-demo.js"></script>
+    <script src="js/demo/chart-pie-demo.js"></script>
 
 </body>
 
