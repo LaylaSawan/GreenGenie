@@ -108,53 +108,128 @@
                 </nav>
                 <!-- End of Topbar -->
                 <script>
-                    const apiUrl = 'https://k1z4zgvk39.execute-api.us-east-2.amazonaws.com/DepA/';
-                    allData = { "co": {}, "co2": {}, "flame": {}, "temp": {}, "humidity": {}, "date": {} }
-
-
-                    fetch(apiUrl)
-                        .then(response => {
-                            if (!response.ok) {
-                                throw new Error('Network response was not ok');
-                            }
-                            return response.json();
-                        })
-                        .then(data => {
-                            data.forEach(point => {
-                                console.log(point)
-                                // allData[point.node] = point
-                                point.sensorData.forEach(rowOfData => {
-                                    if (allData['co'][point.node] === undefined) {
-                                        allData['co'][point.node] = []
-                                        allData['co2'][point.node] = []
-                                        allData['flame'][point.node] = []
-                                        allData['temp'][point.node] = []
-                                        allData['humidity'][point.node] = []
-                                        allData['date'][point.node] = []
+                         function updateNodeSensor() {
+                            var sensor = document.getElementById("mySelectSensor").value;
+                            var id = document.getElementById("mySelectID").value;
+                            document.getElementById("demoSENSOR").innerHTML = "You selected: " + id;
+                            changeChart(allData['date'][id], allData[sensor][id], sensor)
+                        }
+                        
+                        const apiUrl = 'https://k1z4zgvk39.execute-api.us-east-2.amazonaws.com/DepA/';
+                        let allData = { "co": {}, "co2": {}, "flame": {}, "temp": {}, "humidity": {}, "date": {} };
+                        
+                        function fetchDataAndUpdate() {
+                            fetch(apiUrl)
+                                .then(response => {
+                                    if (!response.ok) {
+                                        throw new Error('Network response was not ok');
                                     }
-                                    allData['co'][point.node].push(rowOfData['co'])
-                                    allData['co2'][point.node].push(rowOfData['co2'])
-                                    allData['flame'][point.node].push(rowOfData['flame'])
-                                    allData['temp'][point.node].push(rowOfData['temp'])
-                                    allData['humidity'][point.node].push(rowOfData['humidity'])
-
-
-                                    let date_time = rowOfData['date_time']
-
-
-                                    allData['date'][point.node].push(date_time)
+                                    return response.json();
                                 })
+                                .then(data => {
+                                    allData = []
+                                    data.forEach(point => {
+                                        console.log(point);
+                                        point.sensorData.forEach(rowOfData => {
+                                            if (allData['co'][point.node] === undefined) {
+                                                allData['co'][point.node] = [];
+                                                allData['co2'][point.node] = [];
+                                                allData['flame'][point.node] = [];
+                                                allData['temp'][point.node] = [];
+                                                allData['humidity'][point.node] = [];
+                                                allData['date'][point.node] = [];
+                                            }
+                                            allData['co'][point.node].push(rowOfData['co']);
+                                            allData['co2'][point.node].push(rowOfData['co2']);
+                                            allData['flame'][point.node].push(rowOfData['flame']);
+                                            allData['temp'][point.node].push(rowOfData['temp']);
+                                            allData['humidity'][point.node].push(rowOfData['humidity']);
+                        
+                                            let date_time = rowOfData['date_time'];
+                                            allData['date'][point.node].push(date_time);
+                                        });
+                                    });
+                                    console.log(allData);
+                                    console.log("Done.");
+                                    updateNodeSensor();
+                                })
+                                .catch(error => {
+                                    console.error('Error:', error);
+                                });
+                        }
+                        
+                        // Call the function initially
+                        fetchDataAndUpdate();
+                        
+                        // Call the function every 5 seconds
+                        setInterval(fetchDataAndUpdate, 5000);
+                    </script>
 
+                    <div class="chartBox col-lg-12">
+                        <div class="card shadow mb-4">
+                            <div class="card-header py-3"></div>
+                            <canvas id="myChart"></canvas>
+                        </div>
+                    </div>
 
-                            });
-                            console.log(allData)
-                            console.log("Done.");
-                            updateNodeSensor();
-                        })
-                        .catch(error => {
-                            console.error('Error:', error);
+                    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+                    <script>
+
+                        const ctx = document.getElementById('myChart');
+                        const myChart = new Chart(ctx, {
+                            type: 'line',
+                            data: {
+                                datasets: [{
+                                    backgroundColor: [
+                                        'rgba(255, 99, 132, 0.2)'
+                                    ],
+                                    borderColor: [
+                                        'rgba(255, 99, 132, 1)'
+                                    ],
+                                    borderWidth: 1
+                                }]
+                            },
+                            options: {
+                                scales: {
+                                    y: {
+                                        beginAtZero: true
+                                    }
+                                }
+                            }
                         });
 
+                        const labelToAxisTitle = {
+                            "co": "Carbon Monoxide Levels",
+                            "co2": "Carbon Dioxide Levels",
+                            "flame": "Flame Presence",
+                            "temp": "Temperature (°C)",
+                            "humidity": "Humidity (%)"
+                        }
+
+                        function changeChart(label, data, type, color = 'rgba(255, 99, 132, 1)') {
+                            myChart.data.datasets[0].backgroundColor = color;
+                            myChart.data.datasets[0].borderColor = color;
+                            myChart.data.labels = label;
+
+                            myChart.options.scales = {
+                                x: {
+                                    title: {
+                                        display: true,
+                                        text: "Timestamp Uploaded",
+                                    }
+                                },
+                                y: {
+                                    title: {
+                                        display: true,
+                                        text: labelToAxisTitle[type]
+                                    },
+                                    beginAtZero: 0
+                                }
+                            }
+
+                            myChart.data.datasets[0].data = data;
+                            myChart.update()
+                        }
 
                 </script>
 
